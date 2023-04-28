@@ -1,0 +1,38 @@
+CREATE TABLE films (
+	id serial,
+  name TEXT,
+  release_year DATE
+);
+
+
+INSERT INTO films (name, release_year)
+VALUES ('The Matrix', '1999-03-31');
+
+INSERT INTO films(name, release_year)
+VALUES
+  ('The Martian', '2015-10-02'),
+  ('2001: Sace Odessey', '04-02-1968');
+  
+UPDATE films
+SET name = '2001: The Space Odessey'
+WHERE name = '2001: Sace Odessey';
+
+INSERT INTO films (name, release_year)
+VALUES 
+	('Interstellar','2014-11-07'),
+  ('Her', '2014-01-10'),
+  ('Minority Report', '2002-06-21'),
+  ('Blade Runner', '1982-06-25'),
+  ('Blade Runner 2049', '2017-10-06');
+ 
+ ALTER TABLE films
+ ADD year INTEGER,
+ ADD runtime INTEGER,
+ ADD category TEXT,
+ ADD box_office_earnings INTEGER;
+
+ALTER TABLE films
+ADD CONSTRAINT unique_name UNIQUE(name);
+
+INSERT INTO films (name)
+VALUES ('Blade Runner'); /*testing the constraint. It works as it should*/
